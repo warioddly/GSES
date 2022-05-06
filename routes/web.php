@@ -62,6 +62,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/material/marker_words', [\App\Http\Controllers\MaterialContentController::class, 'marker_words'])->name('materials.marker_words');
     Route::post('/getDeclensions', [\App\Http\Controllers\MarkerWordController::class, 'getDeclensions'])->name('getDeclensions');
     Route::post('/getContractors', [\App\Http\Controllers\ContractorController::class, 'ajaxGetContractors'])->name('getContractors');
+    Route::post('/getCovers', [\App\Http\Controllers\ContractorController::class, 'ajaxGetCovers'])->name('getCovers');
     Route::resource('templates', \App\Http\Controllers\TemplatesController::class, ['as' => 'modules']);
     Route::resource('histories', \App\Http\Controllers\HistoryController::class)->only('index');
     Route::resource('security/roles', \App\Http\Controllers\RoleController::class, ['as' => 'security']);

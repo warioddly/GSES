@@ -125,7 +125,7 @@ unset($__errorArgs, $__bag); ?>
                         $(el).find('select').prop('required', true);
                     });
                 }
-                if (type_id == 2) {
+                if (type_id == 2 || type_id == 4) {
                     $('.type-depended-elements').each(function (i, el) {
                         $(el).find('input').val(null);
                         $(el).find('select').val('').removeAttr('required');

@@ -37,7 +37,7 @@
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         $('select[name="{{ $fieldName }}"]').select2({
             ajax: {
-                url: '{{$ajax}}',
+                url: '{{ $ajax }}',
                 type: "post",
                 dataType: 'json',
                 delay: 250,
@@ -95,7 +95,7 @@
                         $(el).find('select').prop('required', true);
                     });
                 }
-                if (type_id == 2) {
+                if (type_id == 2 || type_id == 4) {
                     $('.type-depended-elements').each(function (i, el) {
                         $(el).find('input').val(null);
                         $(el).find('select').val('').removeAttr('required');

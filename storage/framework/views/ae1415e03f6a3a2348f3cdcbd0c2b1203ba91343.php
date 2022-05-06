@@ -70,16 +70,14 @@
                         <?php echo e(AppHelper::dateBlade('expiration_date', __('End of production date'))); ?>
 
                     </div>
-
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), [null=>__('Search for an item')] + $contractors ,null,true,false)); ?>
+                        <?php echo e(AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), [] ,null,true,false, route('getContractors'))); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::selectCover('cover_id', __('Cover letter signed'), [null=>__('Search for an item')] + $covers ,null,true,false)); ?>
+                        <?php echo e(AppHelper::selectCover('cover_id', __('Cover letter signed'), [],null,true,false, route('getCovers'))); ?>
 
                     </div>
-
                     <div class="col-md-6 px-md-5 form-field">
                         <?php echo e(AppHelper::selectMultipleBlade('types', __('Expertise type'), [null=>__('Search for an item')] + $types, [])); ?>
 

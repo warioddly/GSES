@@ -28,8 +28,10 @@ class ContractorController extends Controller
      */
     public function index(Request $request)
     {
+        dd($request->ajax());
         if ($request->ajax()) {
             $data = Contractor::query();
+            dd($data);
             if ($request->query('searchText')) {
                 $data
                     ->where('last_name', 'like', '%' . $request->query('searchText') . '%')
@@ -214,11 +216,14 @@ class ContractorController extends Controller
 
         if ($search == '') {
             $contractors = Contractor::orderby('last_name', 'asc')->select('id', 'last_name', 'name', 'middle_name')
+                ->where('cover', false)
                 ->limit(10)->get();
         } else {
             $contractors = Contractor::orderby('last_name', 'asc')->select('id', 'last_name', 'name', 'middle_name')
                 ->where('last_name', 'like', '%' . $search . '%')->orWhere('name', 'like', '%' . $search . '%')
-                ->orWhere('middle_name', 'like', '%' . $search . '%')->limit(10)->get();
+                ->orWhere('middle_name', 'like', '%' . $search . '%')
+                ->where('cover', true)
+                ->limit(10)->get();
         }
 
         $response = array();
@@ -227,6 +232,35 @@ class ContractorController extends Controller
             "text" => __('Search for an item'),
         );
         foreach ($contractors as $contractor) {
+            $response[] = array(
+                "id" => $contractor->id,
+                "text" => $contractor->last_name . ' ' . $contractor->name . ' ' . $contractor->midd_name,
+            );
+        }
+        return response()->json($response);
+    }
+    public function ajaxGetCovers(Request $request)
+    {
+        $search = $request->search;
+
+        if ($search == '') {
+            $covers = Contractor::orderby('last_name', 'asc')->select('id', 'last_name', 'name', 'middle_name')
+                ->where('cover', true)
+                ->limit(10)->get();
+        } else {
+            $covers = Contractor::orderby('last_name', 'asc')->select('id', 'last_name', 'name', 'middle_name')
+                ->where('last_name', 'like', '%' . $search . '%')->orWhere('name', 'like', '%' . $search . '%')
+                ->orWhere('middle_name', 'like', '%' . $search . '%')
+                ->where('cover', true)
+                ->limit(10)->get();
+        }
+
+        $response = array();
+        $response[] = array(
+            "id" => null,
+            "text" => __('Search for an item'),
+        );
+        foreach ($covers as $contractor) {
             $response[] = array(
                 "id" => $contractor->id,
                 "text" => $contractor->last_name . ' ' . $contractor->name . ' ' . $contractor->midd_name,

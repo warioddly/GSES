@@ -37,7 +37,7 @@
                                 {{AppHelper::dependedSelectBlade('region_id', __('Region'), [null=>__('Search for an item')] + $regions, null, true)}}
                             </div>
                             <div class="col-md-6 px-md-5 form-field">
-                                {{AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, null, true, 'region_id', $typeRelation)}}
+                                {{AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, null, false, 'region_id', $typeRelation)}}
                             </div>
                             <div class="col-md-6 px-md-5 form-field type-depended-elements">
                                 {{AppHelper::textBlade('sub_organ', __('Subdivision name'), null, false)}}

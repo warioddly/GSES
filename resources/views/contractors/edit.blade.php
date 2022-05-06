@@ -45,7 +45,7 @@
                         {{AppHelper::dependedSelectBlade('region_id', __('Region'), [null=>__('Search for an item')] + $regions, $contractor->region_id, true)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, $contractor->district_id, true, 'region_id', $typeRelation)}}
+                        {{AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, $contractor->district_id, false, 'region_id', $typeRelation)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field type-depended-elements">
                         {{AppHelper::textBlade('sub_organ', __('Subdivision name'), null, false)}}
@@ -99,7 +99,7 @@
                     $(el).find('select').prop('required',true);
                 });
             }
-            if (type_id == 2) {
+            if (type_id == 2 || type_id == 4) {
                 $('.type-depended-elements').each(function (i, el) {
                     $(el).find('input').val(null);
                     $(el).find('select').val('').removeAttr('required');
