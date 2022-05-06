@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('panel'); ?>
     <div class="col-md-6 col-sm-12">
         <h3 class="animated fadeInLeft"><?php echo e(__('Edit Expertise')); ?></h3>
@@ -66,7 +64,11 @@
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), $contractor, $expertise->contractor->id, true, false, route('getContractors'))); ?>
+                        <?php echo e(AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), [null=>__('Search for an item')] + $contractors, $expertise->contractor->id, true, false)); ?>
+
+                    </div>
+                    <div class="col-md-6 px-md-5 form-field">
+                        <?php echo e(AppHelper::selectCover('cover_id', __('Full name of the investigator'), [null=>__('Search for an item')] + $covers, $expertise->cover->id, true, false)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">

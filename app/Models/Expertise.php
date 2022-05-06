@@ -110,6 +110,11 @@ class Expertise extends Model
         return $this->hasOne(Contractor::class, 'id', 'contractor_id');
     }
 
+    public function cover()
+    {
+        return $this->hasOne(Contractor::class, 'id', 'cover_id');
+    }
+
     public function types()
     {
         return $this->belongsToMany(ExpertiseType::class,

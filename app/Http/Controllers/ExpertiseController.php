@@ -341,6 +341,12 @@ class ExpertiseController extends Controller
         }
         $expertise = Expertise::find($id);
         $contractor = $expertise->contractor()->select('id', DB::raw("CONCAT_WS(' ', last_name, name, middle_name) as full_name"))->pluck('full_name', 'id')->all();
+        $cover = $expertise->cover()->select('id', DB::raw("CONCAT_WS(' ', last_name, name, middle_name) as full_name"))->pluck('full_name', 'id')->all();
+
+        $contractors = Contractor::where('cover', false)->select('id', DB::raw("CONCAT_WS(' ', last_name, name, middle_name) as full_name"))
+            ->get()->pluck('full_name', 'id')->toArray();
+        $covers = Contractor::select('id', DB::raw("CONCAT_WS(' ', last_name, name, middle_name) as full_name"))->where('cover', true)
+            ->get()->pluck('full_name', 'id')->toArray();
 
         $types = ExpertiseType::pluck('title', 'id')->all();
         $sequences = ExpertiseSequence::pluck('title', 'id')->all();
@@ -355,7 +361,7 @@ class ExpertiseController extends Controller
         $subjects = Subject::pluck('subject_case', 'id')->all();
         $conclusions = ExpertiseConclusion::where('expertise_id', $id)->get();
 
-        return view('expertise.edit', compact('expertise', 'contractor',
+        return view('expertise.edit', compact('expertise', 'contractor', 'contractors', 'cover', 'covers',
             'types', 'sequences', 'compositions', 'difficulties',
             'statuses', 'reasons', 'experts', 'statusRelation', 'subjects', 'articles', 'conclusions'));
     }
@@ -383,6 +389,7 @@ class ExpertiseController extends Controller
             'start_date' => 'nullable|date_format:d-m-Y|after_or_equal:receipt_date',
             'expiration_date' => 'nullable|date_format:d-m-Y|after:start_date',
             'contractor_id' => 'nullable',
+            'cover_id' => 'nullable',
             'types' => 'nullable',
             'sequence_id' => 'nullable',
             'composition_id' => 'nullable',

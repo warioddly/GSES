@@ -57,7 +57,10 @@
                         {{AppHelper::dateBlade('expiration_date', __('End of production date'))}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), $contractor, $expertise->contractor->id, true, false, route('getContractors'))}}
+                        {{AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), [null=>__('Search for an item')] + $contractors, $expertise->contractor->id, true, false)}}
+                    </div>
+                    <div class="col-md-6 px-md-5 form-field">
+                        {{AppHelper::selectCover('cover_id', __('Full name of the investigator'), [null=>__('Search for an item')] + $covers, $expertise->cover->id, true, false)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
                         {{AppHelper::selectMultipleBlade('types', __('Expertise type'), [null=>__('Search for an item')] + $types, $expertise->types()->pluck('type_id')->all())}}
