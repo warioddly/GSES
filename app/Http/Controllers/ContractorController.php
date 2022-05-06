@@ -28,10 +28,8 @@ class ContractorController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request->ajax());
         if ($request->ajax()) {
             $data = Contractor::query();
-            dd($data);
             if ($request->query('searchText')) {
                 $data
                     ->where('last_name', 'like', '%' . $request->query('searchText') . '%')
@@ -121,10 +119,6 @@ class ContractorController extends Controller
             'region_id' => 'required_if:type_id,text|nullable',
             'district_id' => 'required_if:type_id,text|nullable',
         ]);
-
-        if($data['type_id'] == 4){
-            $data['cover'] = 1;
-        }
 
         Contractor::create($data + [
                 'creator_id' => auth()->user()->id,
@@ -250,8 +244,7 @@ class ContractorController extends Controller
         } else {
             $covers = Contractor::orderby('last_name', 'asc')->select('id', 'last_name', 'name', 'middle_name')
                 ->where('last_name', 'like', '%' . $search . '%')->orWhere('name', 'like', '%' . $search . '%')
-                ->orWhere('middle_name', 'like', '%' . $search . '%')
-                ->where('cover', true)
+                ->orWhere('middle_name', 'like', '%' . $search . '%')->where('cover', true)
                 ->limit(10)->get();
         }
 

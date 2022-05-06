@@ -3,7 +3,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="analyzeEditModalLabel"><?php echo e(__('Create Contractor')); ?></h4>
+        <h4 class="modal-title" id="analyzeEditModalLabel">awdawd<?php echo e(__('Create Contractor')); ?></h4>
     </div>
     <div class="modal-body p-0">
         <form id="modal-form" method="POST" enctype="multipart/form-data"
@@ -12,7 +12,7 @@
             <div class="panel m-0">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <a role="button" data-toggle="collapse" href="#create-contractor-accordion"
+                        <a role="button" data-toggle="collapse" href="#create-cover-accordion"
                            aria-expanded="true"
                            aria-controls="collapse1"
                            class="">
@@ -20,7 +20,7 @@
                         </a>
                     </div>
                 </div>
-                <div id="create-contractor-accordion" class="panel-collapse collapse in" role="tabpanel"
+                <div id="create-cover-accordion" class="panel-collapse collapse in" role="tabpanel"
                      aria-labelledby="heading1"
                      aria-expanded="true" style="">
                     <div class="panel-body">
@@ -38,7 +38,7 @@
 
                             </div>
                             <div class="col-md-6 px-md-5 form-field">
-                                <?php echo e(AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, null, true, 'region_id', $typeRelation)); ?>
+                                <?php echo e(AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, null, false, 'region_id', $typeRelation)); ?>
 
                             </div>
                             <div class="col-md-6 px-md-5 form-field type-depended-elements">

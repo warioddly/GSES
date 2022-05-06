@@ -1,7 +1,7 @@
 @can('contractor-create')
     <div class="form-group form-animate-text @error($fieldName) form-animate-error @enderror contractor-form-group">
         <div class="input-group">
-            {!! Form::select($fieldName, $options, $value, array('class' => 'form-control contractor-select js-states select2'.($errors->has($fieldName)?' error':''))+($required?['required']:[])+($readonly?['readonly']:[])+($ajax?['data-ajax'=>$ajax]:[])) !!}
+            {!! Form::select($fieldName, $options, $value, array('class' => 'form-control cover-select js-states select2'.($errors->has($fieldName)?' error':''))+($required?['required']:[])+($readonly?['readonly']:[])+($ajax?['data-ajax'=>$ajax]:[])) !!}
             <div class="input-group-btn">
                 <button id="show-cover-modal" type="button" class="btn btn-secondary">
                     <i class="fas fa-plus"></i></button>
@@ -33,11 +33,11 @@
 
 @push('page-scripts')
     <script>
-            @if ($ajax)
+        @if ($ajax)
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         $('select[name="{{ $fieldName }}"]').select2({
             ajax: {
-                url: '{{ $ajax }}',
+                url: '{{$ajax}}',
                 type: "post",
                 dataType: 'json',
                 delay: 250,
@@ -86,7 +86,7 @@
             })
         </script>
         <script>
-            $(document).on('change', '#create-contractor-accordion select[name=type_id]', function () {
+            $(document).on('change', '#create-cover-accordion select[name=type_id]', function () {
                 type_id = $(this).val();
                 if (type_id == 1) {
                     $('.type-depended-elements').show();
@@ -95,7 +95,7 @@
                         $(el).find('select').prop('required', true);
                     });
                 }
-                if (type_id == 2 || type_id == 4) {
+                if (type_id == 2) {
                     $('.type-depended-elements').each(function (i, el) {
                         $(el).find('input').val(null);
                         $(el).find('select').val('').removeAttr('required');
@@ -136,8 +136,8 @@
                     contentType: false,
                     success: (data) => {
                         stopPreloader();
-                        $('.contractor-select').append(`<option value="${data.id}" selected>${data.name}</option>`);
-                        $('.contractor-select').select2('destroy').select2({
+                        $('.cover-select').append(`<option value="${data.id}" selected>${data.name}</option>`);
+                        $('.cover-select').select2('destroy').select2({
                             placeholder: '{{__('Search for an item')}}',
                             theme: 'default',
                             allowClear: true,

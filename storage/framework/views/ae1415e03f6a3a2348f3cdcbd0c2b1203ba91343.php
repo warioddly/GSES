@@ -71,11 +71,11 @@
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), [] ,null,true,false, route('getContractors'))); ?>
+                        <?php echo e(AppHelper::selectContractor('contractor_id', __('Full name of the investigator'), [null=>__('Search for an item')] + $contractors ,null,true,false)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::selectCover('cover_id', __('Cover letter signed'), [],null,true,false, route('getCovers'))); ?>
+                        <?php echo e(AppHelper::selectCover('cover_id', __('Cover letter signed'), [null=>__('Search for an item')] + $covers, null,true,false)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">

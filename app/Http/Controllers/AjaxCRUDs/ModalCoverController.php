@@ -52,7 +52,7 @@ class ModalCoverController extends Controller
             }
         }
 
-        $request->validate([
+        $data = $request->validate([
             'type_id' => 'required|exists:contractor_types,id',
             'organ_id' => 'required_if:type_id,text|exists:contractor_organs,id|nullable',
             'sub_organ' => 'string|max:255|nullable',
@@ -64,13 +64,11 @@ class ModalCoverController extends Controller
             'email' => 'string|max:255|nullable',
         ]);
 
-        $data = $request->all();
-
         $data['cover'] = 1;
 
         $contractor = Contractor::create($data + [
-            'creator_id' => auth()->user()->id,
-        ]);
+                'creator_id' => auth()->user()->id,
+            ]);
         return response()->json(['id' => $contractor->id, 'name' => $contractor->last_name . ' ' . $contractor->name . ' ' . $contractor->middle_name]);
     }
 }

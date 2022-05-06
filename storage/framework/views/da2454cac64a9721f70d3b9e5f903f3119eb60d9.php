@@ -50,7 +50,7 @@
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, null,true, 'region_id', $typeRelation)); ?>
+                        <?php echo e(AppHelper::dependedSelectBlade('district_id', __('District'), [null=>__('Search for an item')] + $districts, null,false, 'region_id', $typeRelation)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field type-depended-elements">

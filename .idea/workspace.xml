@@ -3,21 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="2a1241dd-d01c-48a2-a537-5d518eb3e12b" name="Default Changelist" comment="awd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxCRUDs/ModalContractorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxCRUDs/ModalContractorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxCRUDs/ModalCoverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxCRUDs/ModalCoverController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContractorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContractorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contractors/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contractors/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contractors/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contractors/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/expertise/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expertise/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modal-CRUDs/contractors/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal-CRUDs/contractors/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modal-CRUDs/contractors/createCover.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal-CRUDs/contractors/createCover.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/uitypes/select_contractor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/uitypes/select_contractor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/uitypes/select_cover.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/uitypes/select_cover.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/kSTFetfKiTmQ1sFRpTkW4eq9etdFJeCRjbba4DBo" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/kSTFetfKiTmQ1sFRpTkW4eq9etdFJeCRjbba4DBo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/Gyvar5b3OW4ImvAGu7RE6lAJnf6M5svPMqY2cPiX" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/0f55d531ac4fe6a4c05fec446350f0bc1e7f847e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/0f55d531ac4fe6a4c05fec446350f0bc1e7f847e.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/7b88194bdfea8559588d8fde2507eead2aae9b49.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/7b88194bdfea8559588d8fde2507eead2aae9b49.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/8f3578f835b39b04655437c5af3eeac38d7a97cf.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/8f3578f835b39b04655437c5af3eeac38d7a97cf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/8f3168c720f523462bed466450947ce302218c23.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/8f3168c720f523462bed466450947ce302218c23.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/8f8c41ab1550578f968f72b813db1b0a3d4597cb.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/8f8c41ab1550578f968f72b813db1b0a3d4597cb.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/ae1415e03f6a3a2348f3cdcbd0c2b1203ba91343.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/ae1415e03f6a3a2348f3cdcbd0c2b1203ba91343.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/da2454cac64a9721f70d3b9e5f903f3119eb60d9.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/da2454cac64a9721f70d3b9e5f903f3119eb60d9.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/laravel/framework" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework" afterDir="false" />
@@ -211,7 +209,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651814665154</updated>
-      <workItem from="1651814667426" duration="2342000" />
+      <workItem from="1651814667426" duration="5099000" />
     </task>
     <task id="LOCAL-00001" summary="awd">
       <created>1651815302520</created>
@@ -220,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651815302521</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="awd">
+      <created>1651817154288</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651817154288</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
