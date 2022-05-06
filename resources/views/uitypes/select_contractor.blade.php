@@ -95,7 +95,7 @@
                         $(el).find('select').prop('required', true);
                     });
                 }
-                if (type_id == 2 || type_id == 4) {
+                if (type_id == 2) {
                     $('.type-depended-elements').each(function (i, el) {
                         $(el).find('input').val(null);
                         $(el).find('select').val('').removeAttr('required');
@@ -156,7 +156,6 @@
                         } else {
                             alert('Server error:' + error.status);
                         }
-
                     }
                 });
                 return false;

@@ -17,7 +17,7 @@ class ModalContractorController extends Controller
 {
     public function create()
     {
-        $types = ContractorType::pluck('title', 'id')->all();
+        $types = ContractorType::where('id', '!=', 4)->get()->pluck('title', 'id')->toArray();
         $organs = ContractorOrgan::query()->get()->keyBy('id')->toArray();
         $regions = Region::pluck('region', 'id')->all();
         $districts = RegionDistrict::pluck('district', 'id')->all();
@@ -67,6 +67,7 @@ class ModalContractorController extends Controller
         $contractor = Contractor::create($request->all() + [
             'creator_id' => auth()->user()->id,
         ]);
+
         return response()->json(['id' => $contractor->id, 'name' => $contractor->last_name . ' ' . $contractor->name . ' ' . $contractor->middle_name]);
     }
 }

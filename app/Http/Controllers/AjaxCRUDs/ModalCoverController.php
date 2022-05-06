@@ -17,7 +17,7 @@ class ModalCoverController extends Controller
 {
     public function create()
     {
-        $types = ContractorType::pluck('title', 'id')->all();
+        $types = ContractorType::where('id', '!=', 4)->get()->pluck('title', 'id')->toArray();
         $organs = ContractorOrgan::query()->get()->keyBy('id')->toArray();
         $regions = Region::pluck('region', 'id')->all();
         $districts = RegionDistrict::pluck('district', 'id')->all();

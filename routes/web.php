@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('petitions', \App\Http\Controllers\AjaxCRUDs\Expertise\ExpertisePetitionController::class);
         Route::resource('materials', \App\Http\Controllers\AjaxCRUDs\Expertise\ExpertiseMaterialController::class);
     });
-    Route::resource('modal-contractors', App\Http\Controllers\AjaxCRUDs\ModalCoverController::class)->only('create', 'store');
+    Route::resource('modal-contractors', App\Http\Controllers\AjaxCRUDs\ModalContractorController::class)->only('create', 'store');
     Route::resource('modal-cover', App\Http\Controllers\AjaxCRUDs\ModalCoverController::class)->only('create', 'store');
     Route::resource('modal-subject', App\Http\Controllers\AjaxCRUDs\ModalSubjectController::class)->only('create', 'store');
     Route::group(['middleware' => ['permission:queue-monitor']], function () {

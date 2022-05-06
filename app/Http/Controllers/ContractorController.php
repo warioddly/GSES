@@ -82,13 +82,11 @@ class ContractorController extends Controller
      */
     public function create()
     {
-
-        $types = ContractorType::pluck('title', 'id')->all();
+        $types = ContractorType::where('id', '!=', 4)->get()->pluck('title', 'id')->toArray();
         $organs = ContractorOrgan::pluck('title', 'id')->all();
         $regions = Region::pluck('region', 'id')->all();
         $districts = RegionDistrict::pluck('district', 'id')->all();
         $ids = RegionDistrict::all();
-
         $typeRelation = [];
 
         foreach ($ids as $value) {
@@ -146,7 +144,7 @@ class ContractorController extends Controller
      */
     public function edit(Contractor $contractor)
     {
-        $types = ContractorType::pluck('title', 'id')->all();
+        $types = ContractorType::where('id', '!=', 4)->get()->pluck('title', 'id')->toArray();
         $organs = ContractorOrgan::pluck('title', 'id')->all();
 
         $regions = Region::pluck('region', 'id')->all();
