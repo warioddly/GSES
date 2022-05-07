@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2a1241dd-d01c-48a2-a537-5d518eb3e12b" name="Default Changelist" comment="awd">
+      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/RIWdcNudYUdt8HSkzP6TybIey3sxEDVhu6wuZKR5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/kSTFetfKiTmQ1sFRpTkW4eq9etdFJeCRjbba4DBo" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/kSTFetfKiTmQ1sFRpTkW4eq9etdFJeCRjbba4DBo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpertiseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpertiseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/GraphData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GraphData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/kSTFetfKiTmQ1sFRpTkW4eq9etdFJeCRjbba4DBo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/laravel/framework" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework" afterDir="false" />
     </list>
@@ -12,12 +21,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -166,7 +183,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="28mH6Ex6yiUzsrNr5EwL02kHjsh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -174,11 +193,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -196,7 +222,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651814665154</updated>
-      <workItem from="1651814667426" duration="9314000" />
+      <workItem from="1651814667426" duration="9347000" />
+      <workItem from="1651829525133" duration="512000" />
+      <workItem from="1651830637098" duration="808000" />
+      <workItem from="1651837090870" duration="1102000" />
+      <workItem from="1651840179106" duration="1787000" />
+      <workItem from="1651914442200" duration="2681000" />
     </task>
     <task id="LOCAL-00001" summary="awd">
       <created>1651815302520</created>
@@ -233,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651821635931</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="awd">
+      <created>1651828156952</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1651828156953</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,8 +287,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="awd" />
     <option name="LAST_COMMIT_MESSAGE" value="awd" />
   </component>

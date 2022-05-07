@@ -257,7 +257,7 @@ class ExpertiseController extends Controller
                 function ($attribute, $value, $fail) use ($request) {
                     if ($request->composition_id == 2 || $request->composition_id == 4) {
                         if (count($value) < 2) {
-                            $fail(__('This composition requires more that 2 experts'));
+//                            $fail(__('This composition requires more that 2 experts'));
                         }
                     }
                 },
@@ -266,21 +266,17 @@ class ExpertiseController extends Controller
 
         $input = $request->all();
 
-//
-//        $regions = Region::all()->pluck('region');
-//
-//        $forGraph = ['year' => date('Y')];
-//        foreach ($regions as $region){
-//            $forGraph = ;
-//        }
-//        dd(date('Y'));
-//
-//
-//        GraphData::create([
-//            'year' => date('Y'),
-//        ]);
-//
-//        dd('stop');
+        $graphData = GraphData::where('year', date('Y'))->get()->toArray()[0];
+        $contractor = Contractor::whereId($input['contractor_id'])->get()->toArray()[0];
+        $contractorRegion = Region::whereId($contractor['region_id'])->pluck('region')->toArray()[0];
+
+        $graphData['year'] = date('Y');
+        $graphData[$contractorRegion] = $graphData[$contractorRegion] + 1;
+
+        $graph = GraphData::where('year', date('Y'))->first();
+        $graph->update($graphData);
+
+        dd('stop');
 
         $input['resolution_id'] = AppHelper::saveDocument('resolution', 'expertise');
 //        $input['conclusion_id'] = AppHelper::saveDocument('conclusion', 'expertise');
