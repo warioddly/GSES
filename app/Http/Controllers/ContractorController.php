@@ -182,6 +182,54 @@ class ContractorController extends Controller
             'region_id' => 'required_if:type_id,text|nullable',
             'district_id' => 'required_if:type_id,text|nullable',
         ]);
+
+        $data = $request->all();
+
+        if($contractor->region_id != $data['region_id']){
+
+            try {
+                $graphData = GraphData::where('year', date('Y'))->get()->toArray()[0];
+            }
+            catch (\Exception $exception){
+                $oldYearData = GraphData::where('year', date('Y') - 1)->get()->toArray()[0];
+                GraphData::where('year', date('Y') - 2)->update($oldYearData);
+                GraphData::where('year', date('Y') - 1)->update([
+                    'year' => date('Y'),
+                    'Бишкек' => 0,
+                    'Ош' => 0,
+                    'Ошская область' => 0,
+                    'Баткенская область' => 0,
+                    'Жалал-Абадская область' => 0,
+                    'Чуйская область' => 0,
+                    'Нарынская область' => 0,
+                    'Иссык-кульская область' => 0,
+                    'Таласская область' => 0,
+                ]);
+            }
+
+            $oldContractorRegion = Region::whereId($contractor['region_id'])->pluck('region')->toArray()[0];
+            $contractorRegion = Region::whereId($data['region_id'])->pluck('region')->toArray()[0];
+            $contractorExpertiseCount = count($contractor->expertise);
+            $graphData['year'] = date('Y');
+
+            if($graphData[$oldContractorRegion] != 0){
+                $graphData[$oldContractorRegion] = $graphData[$oldContractorRegion] - $contractorExpertiseCount;
+                $graphData[$contractorRegion] = $graphData[$contractorRegion] + $contractorExpertiseCount;
+            }
+
+            $graph = GraphData::where('year', date('Y'))->first();
+            $graph->update($graphData);
+//
+//            $graphData = GraphData::where('year', date('Y'))->get()->toArray()[0];
+//            $contractor = Contractor::whereId($input['contractor_id'])->get()->toArray()[0];
+//            $contractorRegion = Region::whereId($contractor['region_id'])->pluck('region')->toArray()[0];
+//
+//            $graphData['year'] = date('Y');
+//            $graphData[$contractorRegion] = $graphData[$contractorRegion] + 1;
+//            $graph->update($graphData);
+        }
+
+
         $contractor->update($request->all());
         return redirect()->route('modules.contractors.index')
             ->with('success', __('Contractor updated successfully'));

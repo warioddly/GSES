@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a1241dd-d01c-48a2-a537-5d518eb3e12b" name="Default Changelist" comment="awd">
-      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/RIWdcNudYUdt8HSkzP6TybIey3sxEDVhu6wuZKR5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/xjyHo5JmhBUXxL3uQb2nOuRWBbJw7hpoyENscBjw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/613cc27fd47e707870f0b1b09217ce59b54b3c34.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/7a9dc876f998e898b7166787aa1fdf30714c5426.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/9bd058359cabe0219887dda10826fce909461938.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/b5f2e2ab0d609069c91c9c546244443abc5b2337.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/c6b54b06a4ba0254c44f6f078eb6607787a7a740.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/da2454cac64a9721f70d3b9e5f903f3119eb60d9.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContractorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContractorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpertiseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpertiseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/GraphData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GraphData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/kSTFetfKiTmQ1sFRpTkW4eq9etdFJeCRjbba4DBo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/materials/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/materials/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/RIWdcNudYUdt8HSkzP6TybIey3sxEDVhu6wuZKR5" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/laravel/framework" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework" afterDir="false" />
@@ -227,7 +233,10 @@
       <workItem from="1651830637098" duration="808000" />
       <workItem from="1651837090870" duration="1102000" />
       <workItem from="1651840179106" duration="1787000" />
-      <workItem from="1651914442200" duration="2681000" />
+      <workItem from="1651914442200" duration="5243000" />
+      <workItem from="1652155101439" duration="3222000" />
+      <workItem from="1652168845463" duration="46000" />
+      <workItem from="1652169187955" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="awd">
       <created>1651815302520</created>
@@ -271,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651828156953</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="awd">
+      <created>1651917166289</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1651917166289</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

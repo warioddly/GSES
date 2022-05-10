@@ -26,6 +26,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Exception;
 use Nette\Utils\Random;
 use Yajra\DataTables\DataTables;
 
@@ -266,7 +267,26 @@ class ExpertiseController extends Controller
 
         $input = $request->all();
 
-        $graphData = GraphData::where('year', date('Y'))->get()->toArray()[0];
+        try {
+            $graphData = GraphData::where('year', date('Y'))->get()->toArray()[0];
+        }
+        catch (\Exception $exception){
+            $oldYearData = GraphData::where('year', date('Y') - 1)->get()->toArray()[0];
+            GraphData::where('year', date('Y') - 2)->update($oldYearData);
+            GraphData::where('year', date('Y') - 1)->update([
+                'year' => date('Y'),
+                'Бишкек' => 0,
+                'Ош' => 0,
+                'Ошская область' => 0,
+                'Баткенская область' => 0,
+                'Жалал-Абадская область' => 0,
+                'Чуйская область' => 0,
+                'Нарынская область' => 0,
+                'Иссык-кульская область' => 0,
+                'Таласская область' => 0,
+            ]);
+        }
+
         $contractor = Contractor::whereId($input['contractor_id'])->get()->toArray()[0];
         $contractorRegion = Region::whereId($contractor['region_id'])->pluck('region')->toArray()[0];
 
@@ -275,8 +295,6 @@ class ExpertiseController extends Controller
 
         $graph = GraphData::where('year', date('Y'))->first();
         $graph->update($graphData);
-
-        dd('stop');
 
         $input['resolution_id'] = AppHelper::saveDocument('resolution', 'expertise');
 //        $input['conclusion_id'] = AppHelper::saveDocument('conclusion', 'expertise');
@@ -300,8 +318,6 @@ class ExpertiseController extends Controller
                 'document_id' => $docId,
             ]);
         }
-
-
 
         return redirect()->route('expertise.index')
             ->with('success', __('Expertise created successfully'));
@@ -372,6 +388,8 @@ class ExpertiseController extends Controller
     public function update(Request $request, $id)
     {
         $expertise = Expertise::find($id);
+        $old_contractor = $expertise->contractor_id;
+
         if (!auth()->user()->hasAccessToExpertise($expertise)) {
             return redirect()->back()->with('accessError', __('you do not access!'));
         }
@@ -432,6 +450,47 @@ class ExpertiseController extends Controller
                     'document_id' => $docId,
                 ]);
             }
+        }
+
+        if($old_contractor != $input['contractor_id']){
+            try {
+                $graphData = GraphData::where('year', date('Y'))->get()->toArray()[0];
+            }
+            catch (\Exception $exception){
+                $oldYearData = GraphData::where('year', date('Y') - 1)->get()->toArray()[0];
+                GraphData::where('year', date('Y') - 2)->update($oldYearData);
+                GraphData::where('year', date('Y') - 1)->update([
+                    'year' => date('Y'),
+                    'Бишкек' => 0,
+                    'Ош' => 0,
+                    'Ошская область' => 0,
+                    'Баткенская область' => 0,
+                    'Жалал-Абадская область' => 0,
+                    'Чуйская область' => 0,
+                    'Нарынская область' => 0,
+                    'Иссык-кульская область' => 0,
+                    'Таласская область' => 0,
+                ]);
+            }
+
+            $contractor = Contractor::whereId($old_contractor)->get()->toArray()[0];
+            $contractorRegion = Region::whereId($contractor['region_id'])->pluck('region')->toArray()[0];
+            $graphData['year'] = date('Y');
+
+            if($graphData[$contractorRegion] != 0){
+                $graphData[$contractorRegion] = $graphData[$contractorRegion] - 1;
+            }
+
+            $graph = GraphData::where('year', date('Y'))->first();
+            $graph->update($graphData);
+
+            $graphData = GraphData::where('year', date('Y'))->get()->toArray()[0];
+            $contractor = Contractor::whereId($input['contractor_id'])->get()->toArray()[0];
+            $contractorRegion = Region::whereId($contractor['region_id'])->pluck('region')->toArray()[0];
+
+            $graphData['year'] = date('Y');
+            $graphData[$contractorRegion] = $graphData[$contractorRegion] + 1;
+            $graph->update($graphData);
         }
 
         return redirect()->route('expertise.index')
