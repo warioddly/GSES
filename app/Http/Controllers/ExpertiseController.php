@@ -45,7 +45,9 @@ class ExpertiseController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
+
             if ($request->exists('material')) {
+
                 $data = Material::find($request->input('material'))->expertise();
             } else {
                 $data = Expertise::query()->where('created', true);

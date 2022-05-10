@@ -417,5 +417,8 @@
         $('#layout-preloader').hide();
         $('body').removeClass('body-scroll-off');
     }
+
+
+
 </script>
 <!-- end: Javascript -->

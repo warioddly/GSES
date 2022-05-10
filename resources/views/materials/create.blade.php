@@ -47,6 +47,9 @@
                         {{AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')] + $types, null,true, 'object_type_id', $typeRelation)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
+                        {{AppHelper::dependedSelectBlade('childType_id', __('Source'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)}}
+                    </div>
+                    <div class="col-md-6 px-md-5 form-field">
                         {{AppHelper::selectMultipleBlade('language_id', __('Language'), [null=>__('Search for an item')] + $languages)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
@@ -154,6 +157,7 @@
                 $('textarea[name="file_text"]').text('');
             }
         });
+
     </script>
 
 @endpush

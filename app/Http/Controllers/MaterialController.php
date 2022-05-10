@@ -6,6 +6,8 @@ use App\Helpers\AppHelper;
 use App\Models\Document;
 use App\Models\Expertise;
 use App\Models\Material;
+use App\Models\MaterialChildObjectType;
+use App\Models\MaterialChildType;
 use App\Models\MaterialLanguage;
 use App\Models\MaterialLanguagesBridge;
 use App\Models\MaterialObjectType;
@@ -118,20 +120,27 @@ class MaterialController extends Controller
     public function create()
     {
         $typeObjectTypeId = MaterialTypeObjectType::all();
+        $typeObjectChildTypeId = MaterialChildObjectType::all();
 
         $typeRelation = [];
+        $childTypeRelation = [];
 
         foreach ($typeObjectTypeId as $value) {
             $typeRelation[] = [$value->object_type_id, $value->type_id];
         }
 
+        foreach ($typeObjectChildTypeId as $value) {
+            $childTypeRelation[] = [$value->type_id, $value->childType_id];
+        }
+
         $objectTypes = MaterialObjectType::pluck('title', 'id')->all();
         $types = MaterialType::pluck('title', 'id')->all();
+        $childTypes = MaterialChildType::pluck('title', 'id')->all();
         $languages = MaterialLanguage::pluck('title', 'id')->all();
         $statuses = MaterialStatus::pluck('title', 'id')->all();
 
         return view('materials.create', compact('objectTypes',
-            'types', 'languages', 'statuses', 'typeRelation'));
+            'types', 'languages', 'statuses', 'typeRelation', 'childTypes', 'childTypeRelation'));
     }
 
     /**
@@ -154,7 +163,6 @@ class MaterialController extends Controller
             'file_text_comment' => 'nullable',
             'status_id' => 'nullable',
         ]);
-
 
         if ($request->has('archive_file_paths')) {
 

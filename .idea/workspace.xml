@@ -5,20 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a1241dd-d01c-48a2-a537-5d518eb3e12b" name="Default Changelist" comment="awd">
-      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/xjyHo5JmhBUXxL3uQb2nOuRWBbJw7hpoyENscBjw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/613cc27fd47e707870f0b1b09217ce59b54b3c34.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/7a9dc876f998e898b7166787aa1fdf30714c5426.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/9bd058359cabe0219887dda10826fce909461938.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/b5f2e2ab0d609069c91c9c546244443abc5b2337.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/c6b54b06a4ba0254c44f6f078eb6607787a7a740.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/da2454cac64a9721f70d3b9e5f903f3119eb60d9.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/MaterialChildObjectType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/MaterialChildType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2022_05_10_101326_create_material_child_types_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2022_05_10_101936_create_material_child_object_types_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/2358e416542a9b97c4bc153c5ee17506091ae27a.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/5030d38b5cb6270a8cb69418b0bab8284385eefd.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/8565331128f451a27d55d3daa0597ddd0e29ab7a.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContractorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContractorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpertiseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpertiseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/materials/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/materials/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/RIWdcNudYUdt8HSkzP6TybIey3sxEDVhu6wuZKR5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MaterialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/expertise/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expertise/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/expertise/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expertise/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/scripts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/materials/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/materials/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/xjyHo5JmhBUXxL3uQb2nOuRWBbJw7hpoyENscBjw" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/xjyHo5JmhBUXxL3uQb2nOuRWBbJw7hpoyENscBjw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/9bd058359cabe0219887dda10826fce909461938.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/9bd058359cabe0219887dda10826fce909461938.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/c6b54b06a4ba0254c44f6f078eb6607787a7a740.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/c6b54b06a4ba0254c44f6f078eb6607787a7a740.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/laravel/framework" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework" afterDir="false" />
     </list>
@@ -214,6 +223,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\IMO\PhpstormProjects\GSES 2.0\public\asset\css" />
+      <recent name="C:\Users\IMO\PhpstormProjects\GSES 2.0\public\asset\js" />
+      <recent name="C:\Users\IMO\PhpstormProjects\GSES 2.0\public\asset\css\plugins" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -236,7 +252,8 @@
       <workItem from="1651914442200" duration="5243000" />
       <workItem from="1652155101439" duration="3222000" />
       <workItem from="1652168845463" duration="46000" />
-      <workItem from="1652169187955" duration="22000" />
+      <workItem from="1652169187955" duration="3116000" />
+      <workItem from="1652172390620" duration="8285000" />
     </task>
     <task id="LOCAL-00001" summary="awd">
       <created>1651815302520</created>
@@ -287,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651917166289</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="awd">
+      <created>1652169236785</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652169236785</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

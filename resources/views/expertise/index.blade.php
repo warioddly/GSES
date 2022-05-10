@@ -118,7 +118,6 @@
         });
 
         function initDefaultTable(url = '{{route('expertise.index')}}') {
-
             expertiseTable = $('#expertise-table').DataTable({
                 "processing": true,
                 "serverSide": true,

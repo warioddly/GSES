@@ -32,7 +32,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/select2.min.css')  }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/jquery.datetimepicker.css')  }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/style.css')  }}">
-    @stack('page-styles')
+
+@stack('page-styles')
     <!-- end: Css -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,11 +44,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+
+
+
 </head>
 
 <body id="mimin" class="{{explode('.', Route::currentRouteName())[0]}} @guest guest @else logged-in @endguest">
+
 <!-- start: Header -->
 @include('layouts.header')
+
 <!-- end: Header -->
 <div class="container-fluid mimin-wrapper">
 
@@ -108,5 +115,6 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
+
 </body>
 </html>
