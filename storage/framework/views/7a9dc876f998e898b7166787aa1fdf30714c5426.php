@@ -40,11 +40,15 @@
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')]+$objectTypes, null,true)); ?>
+                        <?php echo e(AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')] + $objectTypes, null,true)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')]+$types, null,true, 'object_type_id', $typeRelation)); ?>
+                        <?php echo e(AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')] + $types, null,true, 'object_type_id', $typeRelation)); ?>
+
+                    </div>
+                    <div class="col-md-6 px-md-5 form-field">
+                        <?php echo e(AppHelper::dependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">

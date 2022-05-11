@@ -1,21 +1,20 @@
-@extends('layouts.modal')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                     aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="analyzeEditModalLabel">{{__('Create Material')}}</h4>
+        <h4 class="modal-title" id="analyzeEditModalLabel"><?php echo e(__('Create Material')); ?></h4>
     </div>
     <div class="modal-body p-0">
-        {!! Form::open(['id'=>'modal-form', 'method' => 'POST', 'route' => 'expertise.modal.materials.store', 'enctype'=>'multipart/form-data']) !!}
+        <?php echo Form::open(['id'=>'modal-form', 'method' => 'POST', 'route' => 'expertise.modal.materials.store', 'enctype'=>'multipart/form-data']); ?>
+
         <div class="panel m-0">
             <div class="panel-heading">
                 <div class="panel-title">
                     <a role="button" data-toggle="collapse" href="#create-material-modal1" aria-expanded="true"
                        aria-controls="collapse1"
                        class="">
-                        <h4>{{__('Basic information')}}</h4>
+                        <h4><?php echo e(__('Basic information')); ?></h4>
                     </a>
                 </div>
             </div>
@@ -25,27 +24,34 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::textBlade('name', __('Material name'), null, true)}}
+                            <?php echo e(AppHelper::textBlade('name', __('Material name'), null, true)); ?>
+
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')]+$objectTypes, null,true)}}
+                            <?php echo e(AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')]+$objectTypes, null,true)); ?>
+
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')]+$types, null,true, 'object_type_id', $typeRelation,'#CRUD-modal')}}
+                            <?php echo e(AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')]+$types, null,true, 'object_type_id', $typeRelation,'#CRUD-modal')); ?>
+
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::dependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)}}
+                            <?php echo e(AppHelper::dependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)); ?>
+
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::textBlade('source', __('Material source'), null, true)}}
+                            <?php echo e(AppHelper::textBlade('source', __('Material source'), null, true)); ?>
+
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::selectMultipleBlade('language_id', __('Language'), [null=>__('Search for an item')] + $languages)}}
+                            <?php echo e(AppHelper::selectMultipleBlade('language_id', __('Language'), [null=>__('Search for an item')] + $languages)); ?>
+
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::selectBlade('status_id', __('Status'), [null=>__('Search for an item')]+$statuses, null,true)}}
+                            <?php echo e(AppHelper::selectBlade('status_id', __('Status'), [null=>__('Search for an item')]+$statuses, null,true)); ?>
+
                         </div>
-                        <input type="hidden" name="expertise_id" value="{{ $expertise_id }}">
+                        <input type="hidden" name="expertise_id" value="<?php echo e($expertise_id); ?>">
                     </div>
                 </div>
             </div>
@@ -55,7 +61,7 @@
             <div class="panel-heading">
                 <div class="panel-title">
                     <a role="button" data-toggle="collapse" href="#create-material-modal2" aria-expanded="true" aria-controls="collapse2" class="">
-                        <h4>{{__('Document')}}</h4>
+                        <h4><?php echo e(__('Document')); ?></h4>
                     </a>
                 </div>
             </div>
@@ -63,13 +69,16 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::fileBlade('file', __('Attach source file'))}}
+                            <?php echo e(AppHelper::fileBlade('file', __('Attach source file'))); ?>
+
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::textBlade('file_text_comment', __('Commentary on the recognized material'))}}
+                            <?php echo e(AppHelper::textBlade('file_text_comment', __('Commentary on the recognized material'))); ?>
+
                         </div>
                         <div class="col-md-12 px-md-5 form-multi-field">
-                            {{AppHelper::textareaBlade('file_text', __('Recognized material'))}}
+                            <?php echo e(AppHelper::textareaBlade('file_text', __('Recognized material'))); ?>
+
                         </div>
                     </div>
                 </div>
@@ -78,15 +87,16 @@
         <div id="archive_container" class="d-none">
 
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <div class="modal-footer">
-        <button type="submit" form="modal-form" class="btn btn-primary">{{__('Create')}}</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('Close')}}</button>
+        <button type="submit" form="modal-form" class="btn btn-primary"><?php echo e(__('Create')); ?></button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(__('Close')); ?></button>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('page-scripts')
+<?php $__env->startPush('page-scripts'); ?>
 
     <script>
         $.ajaxSetup({
@@ -103,7 +113,7 @@
                 let archive_container = $('#archive_container');
                 archive_container.empty();
                 $.ajax({
-                    url: '{{route('materials.analyzes.extract')}}', // <-- point to server-side PHP script
+                    url: '<?php echo e(route('materials.analyzes.extract')); ?>', // <-- point to server-side PHP script
                     dataType: 'json',  // <-- what to expect back from the PHP script, if anything
                     cache: false,
                     contentType: false,
@@ -142,4 +152,6 @@
         });
     </script>
 
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\IMO\PhpstormProjects\GSES 2.0\resources\views/modal-CRUDs/expertise/materials/create.blade.php ENDPATH**/ ?>

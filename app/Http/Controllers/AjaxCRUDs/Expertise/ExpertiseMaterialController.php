@@ -11,6 +11,8 @@ use App\Models\ExpertiseMaterial;
 use App\Models\ExpertisePetitionStatus;
 use App\Models\ExpertisePetitionType;
 use App\Models\Material;
+use App\Models\MaterialChildObjectType;
+use App\Models\MaterialChildType;
 use App\Models\MaterialLanguage;
 use App\Models\MaterialObjectType;
 use App\Models\MaterialStatus;
@@ -84,20 +86,28 @@ class ExpertiseMaterialController extends Controller
     public function create(Request $request)
     {
         $typeObjectTypeId = MaterialTypeObjectType::all();
+        $typeObjectChildTypeId = MaterialChildObjectType::all();
 
         $typeRelation = [];
+        $childTypeRelation = [];
 
         foreach ($typeObjectTypeId as $value) {
             $typeRelation[] = [$value->object_type_id, $value->type_id];
-
         }
+
+        foreach ($typeObjectChildTypeId as $value) {
+            $childTypeRelation[] = [$value->type_id, $value->childType_id];
+        }
+
         $statuses = MaterialStatus::pluck('title', 'id')->all();
         $types = MaterialType::pluck('title', 'id')->all();
         $objectTypes = MaterialObjectType::pluck('title', 'id')->all();
+        $childTypes = MaterialChildType::pluck('title', 'id')->all();
         $languages = MaterialLanguage::pluck('title', 'id')->all();
         $expertise_id = $request->expertise_id;
+
         return response()->view('modal-CRUDs.expertise.materials.create', compact(
-            'statuses', 'types', 'objectTypes', 'languages', 'expertise_id', 'typeRelation'
+            'statuses', 'types', 'objectTypes', 'childTypes', 'languages', 'expertise_id', 'typeRelation', 'childTypeRelation'
         ));
     }
 
@@ -111,6 +121,7 @@ class ExpertiseMaterialController extends Controller
             'name' => 'required',
             'object_type_id' => 'nullable',
             'type_id' => 'nullable',
+            'child_type_id' => 'nullable',
             'language_id' => 'nullable',
             'source' => 'nullable',
             'file' => 'nullable',
@@ -119,6 +130,7 @@ class ExpertiseMaterialController extends Controller
             'file_text_comment' => 'nullable',
             'status_id' => 'nullable',
         ]);
+
         if ($request->has('archive_file_paths')) {
 
             foreach ($request->archive_file_paths as $key => $file_path) {
@@ -156,10 +168,11 @@ class ExpertiseMaterialController extends Controller
                 );
             }
         } else {
-            $file_id = null;
+
             if ($request->hasFile('file')) {
                 $file_id = AppHelper::saveDocument('file', 'materials');
             }
+
             $material = Material::create($request->except('file') + [
                     'file_id' => $file_id,
                     'creator_id' => auth()->user()->id,
@@ -181,24 +194,30 @@ class ExpertiseMaterialController extends Controller
     public function edit(Request $request, Material $material)
     {
         $typeObjectTypeId = MaterialTypeObjectType::all();
+        $typeObjectChildTypeId = MaterialChildObjectType::all();
 
         $typeRelation = [];
+        $childTypeRelation = [];
 
         foreach ($typeObjectTypeId as $value) {
             $typeRelation[] = [$value->object_type_id, $value->type_id];
+        }
 
+        foreach ($typeObjectChildTypeId as $value) {
+            $childTypeRelation[] = [$value->type_id, $value->childType_id];
         }
         $statuses = ExpertisePetitionStatus::pluck('title', 'id')->all();
         $types = MaterialType::pluck('title', 'id')->all();
         $objectTypes = MaterialObjectType::pluck('title', 'id')->all();
+        $childTypes = MaterialChildType::pluck('title', 'id')->all();
         $languages = MaterialLanguage::pluck('title', 'id')->all();
         $expertise_id = $request->expertise_id;
         return response()->view('modal-CRUDs.expertise.materials.edit', compact(
             'statuses',
             'types',
             'material',
-            'objectTypes',
-            'languages', 'expertise_id', 'typeRelation'
+            'objectTypes', 'childTypes',
+            'languages', 'expertise_id', 'typeRelation', 'childTypeRelation',
         ));
     }
 
@@ -211,6 +230,7 @@ class ExpertiseMaterialController extends Controller
             'name' => 'required|string|max:255',
             'object_type_id' => 'required|exists:material_object_types,id',
             'type_id' => 'required|exists:material_types,id',
+            'child_type_id' => 'required|exists:material_child_types,id',
             'language_id' => 'required|exists:material_languages,id',
             'source' => 'required|string|max:255',
             'status_id' => 'required|exists:material_status,id',

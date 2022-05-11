@@ -155,6 +155,7 @@ class MaterialController extends Controller
             'name' => 'required',
             'object_type_id' => 'nullable',
             'type_id' => 'nullable',
+            'child_type_id' => 'nullable',
             'language_id' => 'nullable',
             'source' => 'nullable',
             'file' => 'nullable',
@@ -247,17 +248,24 @@ class MaterialController extends Controller
     public function edit($id)
     {
         $typeObjectTypeId = MaterialTypeObjectType::all();
+        $typeObjectChildTypeId = MaterialChildObjectType::all();
 
         $typeRelation = [];
+        $childTypeRelation = [];
 
         foreach ($typeObjectTypeId as $value) {
             $typeRelation[] = [$value->object_type_id, $value->type_id];
+        }
 
+        foreach ($typeObjectChildTypeId as $value) {
+            $childTypeRelation[] = [$value->type_id, $value->childType_id];
         }
         session(['for_modal_material_id' => $id]);
         $material = Material::find($id);
         $objectTypes = MaterialObjectType::pluck('title', 'id')->all();
         $types = MaterialType::pluck('title', 'id')->all();
+        $childTypes = MaterialChildType::pluck('title', 'id')->all();
+
         $languages = MaterialLanguage::pluck('title', 'id')->all();
         $statuses = MaterialStatus::pluck('title', 'id')->all();
 
@@ -273,7 +281,7 @@ class MaterialController extends Controller
         // Конец изменения
 
         return view('materials.edit', compact('material',
-            'objectTypes', 'types', 'languages', 'hasLanguages', 'statuses', 'typeRelation'));
+            'objectTypes', 'types', 'childTypes', 'languages', 'hasLanguages', 'statuses', 'typeRelation', 'childTypeRelation'));
     }
 
     /**
@@ -294,6 +302,7 @@ class MaterialController extends Controller
             'name' => 'required',
             'object_type_id' => 'nullable',
             'type_id' => 'nullable',
+            'child_type_id' => 'nullable',
             'language_id' => 'nullable',
             'source' => 'nullable',
             'file' => 'nullable',

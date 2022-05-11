@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MaterialChildObjectType extends Model
 {
     use HasFactory;
+    protected $guarded = false;
     protected $table = 'material_child_object_types';
-    public $translatable =['title'];
 }

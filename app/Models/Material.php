@@ -33,6 +33,7 @@ class Material extends Model
         'name',
         'object_type_id',
         'type_id',
+        'child_type_id',
         'source',
         'language_id',
         'file_id',

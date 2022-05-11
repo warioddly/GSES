@@ -39,10 +39,13 @@
                         {{AppHelper::textBlade('name', __('Material name'), null, true)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')]+$objectTypes, null,true)}}
+                        {{AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')] + $objectTypes, null,true)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')]+$types, null,true, 'object_type_id', $typeRelation)}}
+                        {{AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')] + $types, null,true, 'object_type_id', $typeRelation)}}
+                    </div>
+                    <div class="col-md-6 px-md-5 form-field">
+                        {{AppHelper::dependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)}}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
                         {{AppHelper::selectMultipleBlade('language_id', __('Language'), $languages, $hasLanguages) }}
