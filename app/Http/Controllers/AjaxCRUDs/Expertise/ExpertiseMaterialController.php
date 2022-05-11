@@ -130,9 +130,9 @@ class ExpertiseMaterialController extends Controller
             'file_text_comment' => 'nullable',
             'status_id' => 'nullable',
         ]);
-
+        $file_id = '';
+        dd('stop');
         if ($request->has('archive_file_paths')) {
-
             foreach ($request->archive_file_paths as $key => $file_path) {
                 $material_file = AppHelper::pathToUploadedFile(storage_path("app/" . $file_path));
                 if (in_array($material_file->extension(), ['mp3', 'mp4'])) {
@@ -168,6 +168,7 @@ class ExpertiseMaterialController extends Controller
                 );
             }
         } else {
+
 
             if ($request->hasFile('file')) {
                 $file_id = AppHelper::saveDocument('file', 'materials');

@@ -34,7 +34,7 @@
                             {{AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')]+$types, null,true, 'object_type_id', $typeRelation,'#CRUD-modal')}}
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
-                            {{AppHelper::dependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)}}
+                            {{AppHelper::dependedSelectBlade('child_type_id', __('SourceType'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)}}
                         </div>
                         <div class="col-md-6 px-md-5 form-field">
                             {{AppHelper::textBlade('source', __('Material source'), null, true)}}
