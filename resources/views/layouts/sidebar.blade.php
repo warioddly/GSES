@@ -36,11 +36,11 @@
                         <a href="{{route('modules.subjects.index')}}">{{__('Subjects')}}</a>
                     </li>
                 @endcan
-                @can('nickname-list')
-                    <li class="ripple {{request()->routeIs('modules.nicknames.*')?'active':''}}">
-                        <a href="{{route('modules.nicknames.index')}}">{{__('Subject alias')}}</a>
-                    </li>
-                @endcan
+{{--                @can('nickname-list')--}}
+{{--                    <li class="ripple {{request()->routeIs('modules.nicknames.*')?'active':''}}">--}}
+{{--                        <a href="{{route('modules.nicknames.index')}}">{{__('Subject alias')}}</a>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
                 @can('expertise_article-list')
                     <li class="ripple {{request()->routeIs('modules.expertiseArticles.*')?'active':''}}">
                         <a href="{{route('modules.expertiseArticles.index')}}">{{__('Expertise articles')}}</a>

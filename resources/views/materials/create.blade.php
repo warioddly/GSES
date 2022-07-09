@@ -16,6 +16,7 @@
 
 @section('content')
 
+
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <strong>{{__('Whoops!')}}</strong> {{__('There were some problems with your input.')}}
@@ -38,25 +39,22 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::textBlade('name', __('Material name'), null, true)}}
+                        {{ AppHelper::textBlade('name', __('Material name'), null, true) }}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')] + $objectTypes, null,true)}}
+                        {{ AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')] + $objectTypes, null,true) }}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')] + $types, null,true, 'object_type_id', $typeRelation)}}
+                        {{ AppHelper::CustomDependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $typeWithTitle, null,true, 'object_type_id', $typeRelation, null, $childTypes, $childTypeRelation, $types) }}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::dependedSelectBlade('child_type_id', __('SourceType'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)}}
+                        {{ AppHelper::selectMultipleBlade('language_id', __('Language'), [null=>__('Search for an item')] + $languages) }}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::selectMultipleBlade('language_id', __('Language'), [null=>__('Search for an item')] + $languages)}}
+                        {{ AppHelper::textBlade('source', __('Material source')) }}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::textBlade('source', __('Material source'))}}
-                    </div>
-                    <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::selectBlade('status_id', __('Status'), [null=>__('Search for an item')] + $statuses)}}
+                        {{ AppHelper::selectBlade('status_id', __('Status'), [null=>__('Search for an item')] + $statuses) }}
                     </div>
                 </div>
             </div>

@@ -38,7 +38,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::textBlade('name', __('Expertise name'), null, true)}}
+                        {{ AppHelper::textBlade('name', __('Expertise name'), null, true) }}
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
                         {{AppHelper::textBlade('number', __('Expertise No.'))}}

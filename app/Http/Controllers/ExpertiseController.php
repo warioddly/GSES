@@ -238,7 +238,7 @@ class ExpertiseController extends Controller
             'decree_reg_number' => 'nullable',
             'receipt_date' => 'nullable|date_format:d-m-Y',
             'start_date' => 'nullable|date_format:d-m-Y|after_or_equal:receipt_date',
-            'expiration_date' => 'nullable|date_format:d-m-Y|after:start_date',
+            'expiration_date' => 'nullable|date_format:d-m-Y|after_or_equal:start_date',
             'contractor_id' => 'nullable',
             'cover_id' => 'nullable',
             'sequence_id' => 'nullable',
@@ -334,6 +334,7 @@ class ExpertiseController extends Controller
     public function show($id)
     {
         $expertise = Expertise::find($id);
+
         return view('expertise.show', compact('expertise'));
     }
 

@@ -6,14 +6,14 @@
         @if ($value instanceof App\Models\Document)
             @if ($value->isImage())
                 <a class="thumbnail" style="width: fit-content; max-width: 100%;">
-                    <img onclick="ImageToModal(event)"  src="{{ route('view-file', $value->name_uuid )}}" style="width: inherit;">
+                    <img onclick="ImageToModal2(event)"  src="{{ route('view-file', $value->name_uuid )}}" style="width: inherit;">
                 </a>
             @elseif($value->extension == 'mp4' || $value->extension == 'mov' || $value->extension == 'mpeg'
                     || $value->extension == 'avi' || $value->extension == 'ogg' || $value->extension == 'wmv')
-                <a onclick="VideoToModal(event)" class="video" href="{{ route('view-file', $value->name_uuid)}}">{{$value->name}}</a>
+                <a onclick="VideoToModal2(event)" class="video" href="{{ route('view-file', $value->name_uuid)}}">{{$value->name}}</a>
             @elseif($value->extension == 'm4a' || $value->extension == 'mp3' || $value->extension == 'flac'
                 || $value->extension == 'wav' || $value->extension == 'wma' || $value->extension == 'aac')
-                <a onclick="AudioToModal(event)" class="audio" href="{{ route('view-file', $value->name_uuid)}}">{{$value->name}}</a>
+                <a onclick="AudioToModal2(event)" class="audio" href="{{ route('view-file', $value->name_uuid)}}">{{$value->name}}</a>
             @else
                 <a href="{{ route('download-file', $value->name_uuid)}}">{{$value->name}}</a>
             @endif

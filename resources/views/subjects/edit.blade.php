@@ -36,8 +36,11 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::textBlade('subject_case', __('Subject case'), null, true)}}
+                        {{ AppHelper::textBlade('subject_case', __('Subject case'), null, true) }}
                     </div>
+{{--                    <div class="col-md-6 px-md-5 form-field">--}}
+{{--                        {{ AppHelper::textBlade('note', __('Note'), null, true) }}--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>

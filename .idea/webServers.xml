@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bb5e7c31-b5c9-48c2-9bcb-c9d8af2d4400" name="gses" url="http://gses.24mycrm.com/">
+        <fileTransfer rootFolder="/var/www/html/gses" accessType="SFTP" host="46.235.72.123" port="22" sshConfigId="84053625-2b2f-4453-ab85-a1c63ed86561" sshConfig="root@46.235.72.123:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

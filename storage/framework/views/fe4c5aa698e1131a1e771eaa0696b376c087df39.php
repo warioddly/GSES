@@ -36,11 +36,11 @@
                         <a href="<?php echo e(route('modules.subjects.index')); ?>"><?php echo e(__('Subjects')); ?></a>
                     </li>
                 <?php endif; ?>
-                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('nickname-list')): ?>
-                    <li class="ripple <?php echo e(request()->routeIs('modules.nicknames.*')?'active':''); ?>">
-                        <a href="<?php echo e(route('modules.nicknames.index')); ?>"><?php echo e(__('Subject alias')); ?></a>
-                    </li>
-                <?php endif; ?>
+
+
+
+
+
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('expertise_article-list')): ?>
                     <li class="ripple <?php echo e(request()->routeIs('modules.expertiseArticles.*')?'active':''); ?>">
                         <a href="<?php echo e(route('modules.expertiseArticles.index')); ?>"><?php echo e(__('Expertise articles')); ?></a>

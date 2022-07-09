@@ -30,7 +30,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/css/plugins/fullcalendar.min.css')); ?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/css/plugins/datatables.bootstrap.min.css')); ?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/css/plugins/select2.min.css')); ?>"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/css/plugins/jquery.datetimepicker.css')); ?>"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/css/style.css')); ?>">
 
 <?php echo $__env->yieldPushContent('page-styles'); ?>

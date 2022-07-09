@@ -14,7 +14,8 @@
 <script src="<?php echo e(asset('asset/js/plugins/maps/jquery.vmap.world.js')); ?>"></script>
 <script src="<?php echo e(asset('asset/js/plugins/jquery.vmap.sampledata.js')); ?>"></script>
 <script src="<?php echo e(asset('asset/js/plugins/chart.min.js')); ?>"></script>
-<script src="<?php echo e(asset('asset/js/plugins/select2.full.min.js')); ?>"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="<?php echo e(asset('asset/js/plugins/jquery.datetimepicker.full.js')); ?>"></script>
 <script src="<?php echo e(asset('asset/js/input-mask.js')); ?>"></script>
 
@@ -417,8 +418,6 @@
         $('#layout-preloader').hide();
         $('body').removeClass('body-scroll-off');
     }
-
-
 
 </script>
 <!-- end: Javascript -->

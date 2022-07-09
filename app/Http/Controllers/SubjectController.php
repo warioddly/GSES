@@ -65,6 +65,7 @@ class SubjectController extends Controller
     {
         $request->validate([
             'subject_case' => 'required|string|max:1024',
+            'note' => 'string|nullable',
         ]);
         Subject::create($request->all() + ['user_id' => auth()->check() ? auth()->user()->id : null]);
         return redirect()->route('modules.subjects.index');
@@ -103,6 +104,7 @@ class SubjectController extends Controller
     {
         $request->validate([
             'subject_case' => 'required|string|max:1024',
+            'note' => 'string|nullable',
         ]);
         $subject->update($request->all());
         return redirect()->route('modules.subjects.index');

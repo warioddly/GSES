@@ -14,6 +14,7 @@ class SubjectNickname extends Model
         'nickname',
         'user_id',
         'subject_id',
+        'note',
     ];
 
     public function subject()

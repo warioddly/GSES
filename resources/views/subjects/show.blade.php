@@ -32,7 +32,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     {{AppHelper::showBlade(__('Subject case'), $subject->subject_case)}}
                 </div>
-
+{{--                <div class="col-md-6 px-md-5 form-field">--}}
+{{--                    {{ AppHelper::textBlade('note', __('Note'), $subject->note) }}--}}
+{{--                </div>--}}
             </div>
         </div>
         </div>

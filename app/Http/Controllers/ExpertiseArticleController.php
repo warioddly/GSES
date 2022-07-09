@@ -45,7 +45,13 @@ class ExpertiseArticleController extends Controller
      */
     public function create()
     {
-        return view('simple-cruds.expertise_articles.create');
+        $articles = [
+            "Тип статьи 1" => ["121 Уголовный кодекс", "1228 Уголовный кодекс", "123 Уголовный кодекс" , "125 Уголовный кодекс"],
+            "Тип статьи 2" => ["3384 кодекс", "3358 кодекс", "331 кодекс" , "3328 кодекс"]
+        ];
+
+        $articleType = 1;
+        return view('simple-cruds.expertise_articles.create', compact("articles", 'articleType'));
     }
 
     /**
@@ -56,6 +62,7 @@ class ExpertiseArticleController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        dd($request->all());
         $request->validate([
             'title' => 'required|string|max:255'
         ]);

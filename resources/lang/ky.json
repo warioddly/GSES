@@ -431,7 +431,7 @@
     "Article incriminated": "",
     "You don't have access to the conclusion\" ) }}<\/p>\r\n                        <\/div>\r\n                    @endif\r\n                    <div class=\"col-md-6 py-md-5 px-md-5 text-right\">\r\n                        <button type=\"button\" class=\"btn btn-primary\" style=\"background-color: #3FB8AF !important;\">\r\n                            Сформировать заключение\r\n                        <\/button>\r\n                        <a href=\"{{ route('expertise.index": "",
     "You don't have access to the conclusion\" ) }}<\/p>\r\n                        <\/div>\r\n                    @endif\r\n                    <div class=\"col-md-6 py-md-5 px-md-5 text-right\">\r\n                        <a href=\"{{ route('modules.reports.generate": "",
-    "Export list of expertises": "",
+    "Export list of expertises": "Отчет түзүү",
     "Go to export": "",
     "Expertise articles": "",
     "Create New article": "",

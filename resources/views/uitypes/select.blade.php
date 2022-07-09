@@ -1,7 +1,7 @@
 <div class="form-group form-animate-text @error($fieldName) form-animate-error @enderror">
     {!! Form::select($fieldName, $options, $value, array('class' => 'form-control js-states select2'.($errors->has($fieldName)?' error':''))+($required?['required']:[])+($readonly?['readonly']:[])+($ajax?['data-ajax'=>$ajax]:[])) !!}
     <span class="bar"></span>
-    <label>{{$label}}</label>
+    <label>{{ $label }}</label>
     @error($fieldName)
     <em class="error">{{ __($message) }}</em>
     @enderror

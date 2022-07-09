@@ -14,6 +14,7 @@
 
 <?php $__env->startSection('content'); ?>
 
+
     <?php if(count($errors) > 0): ?>
         <div class="alert alert-danger">
             <strong><?php echo e(__('Whoops!')); ?></strong> <?php echo e(__('There were some problems with your input.')); ?>
@@ -46,11 +47,7 @@
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')] + $types, null,true, 'object_type_id', $typeRelation)); ?>
-
-                    </div>
-                    <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('child_type_id', __('SourceType'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)); ?>
+                        <?php echo e(AppHelper::CustomDependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $typeWithTitle, null,true, 'object_type_id', $typeRelation, null, $childTypes, $childTypeRelation, $types)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">

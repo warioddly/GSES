@@ -37,8 +37,27 @@
              aria-expanded="true" style="">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-6 px-md-5 form-field">
-                        {{AppHelper::textBlade('title', __('Expertise article'), null, true)}}
+{{--                    <div class="col-md-6 px-md-5 form-field">--}}
+{{--                        {{ AppHelper::textBlade('title', __('Expertise article'), null, true)}}--}}
+{{--                    </div>--}}
+                    <div class="col-md-12 px-md-12 ">
+                        <span>
+                            {{ Form::radio('article_type', array_keys($articles)[0], true, ['id' => 'articleType_1']) }}
+                            {{ Form::label('articleType_1', 'Тип статьи 1') }}
+                        </span>
+
+                        <span>
+                            {{ Form::radio('article_type', array_keys($articles)[1], false, ['id' => 'articleType_2']) }}
+                            {{ Form::label('articleType_2', 'Тип статьи 2') }}
+                        </span>
+
+                    </div>
+                    <div class="col-md-6 px-md-12 form-field">
+                        <div class="form-group form-animate-text ">
+                            {!! Form::select("article", $articles, [], array('class' => 'form-control js-states select2')+(['required'])) !!}
+                            <span class="bar"></span>
+                            <label>Статья</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,8 +75,65 @@
     {!! Form::close() !!}
 
 @endsection
+
+<style>
+    .select2-container--default .select2-results__option[aria-disabled=true] {
+        display: none;
+    }
+
+    .select2-container--default .select2-results__group[aria-disabled=true]{
+        display: none;
+    }
+</style>
+
 @push('page-scripts')
     <script>
+
+        let articles = '';
+        let customSelect = $('select[name="article"]');
+
+        customSelect.select2({
+        placeholder: '{{__('Search for an item')}}',
+        allowClear: true,
+        theme: 'default',
+        width: '100%',
+        });
+
+        let placeholder = '{{__('Search for an item')}}'
+
+        $(() => {
+            $(".select2-selection__rendered").text(placeholder);
+            articles = @json($articles);
+            customSelect.find('optgroup').prop('disabled', true);
+
+            if($("#articleType_1")[0].checked){
+                customSelect.find('optgroup').each(function (index, elementOptgroup) {
+                    if(elementOptgroup.label == $('#articleType_1').val()){
+                        $(elementOptgroup).prop('disabled', false);
+                    }
+                });
+            }
+        })
+
+        $('#articleType_1').change(() => {
+            $(".select2-selection__rendered").text(placeholder);
+            customSelect.find('optgroup').prop('disabled', true);
+            customSelect.find('optgroup').each(function (index, elementOptgroup) {
+                if(elementOptgroup.label === $('#articleType_1').val()){
+                    $(elementOptgroup).prop('disabled', false);
+                }
+            });
+        });
+
+        $('#articleType_2').change(() => {
+            $(".select2-selection__rendered").text(placeholder);
+            customSelect.find('optgroup').prop('disabled', true);
+            customSelect.find('optgroup').each(function (index, elementOptgroup) {
+                if(elementOptgroup.label === $('#articleType_2').val()){
+                    $(elementOptgroup).prop('disabled', false);
+                }
+            });
+        });
 
     </script>
 @endpush

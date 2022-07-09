@@ -119,11 +119,14 @@ class MaterialController extends Controller
      */
     public function create()
     {
+        $types = MaterialType::all();
+        $childTypes = MaterialChildType::all();
         $typeObjectTypeId = MaterialTypeObjectType::all();
         $typeObjectChildTypeId = MaterialChildObjectType::all();
 
         $typeRelation = [];
         $childTypeRelation = [];
+        $typeWithTitle = [];
 
         foreach ($typeObjectTypeId as $value) {
             $typeRelation[] = [$value->object_type_id, $value->type_id];
@@ -133,6 +136,15 @@ class MaterialController extends Controller
             $childTypeRelation[] = [$value->type_id, $value->childType_id];
         }
 
+        foreach ($types as $value) {
+            foreach ($childTypes as $key => $ChildValue) {
+                if($value->id == $typeObjectChildTypeId[$key]->type_id){
+                    $typeWithTitle[$value->id] = $value->title;
+                    $typeWithTitle[$value->title][$ChildValue->id] = $ChildValue->title;
+                }
+            }
+        }
+
         $objectTypes = MaterialObjectType::pluck('title', 'id')->all();
         $types = MaterialType::pluck('title', 'id')->all();
         $childTypes = MaterialChildType::pluck('title', 'id')->all();
@@ -140,7 +152,7 @@ class MaterialController extends Controller
         $statuses = MaterialStatus::pluck('title', 'id')->all();
 
         return view('materials.create', compact('objectTypes',
-            'types', 'languages', 'statuses', 'typeRelation', 'childTypes', 'childTypeRelation'));
+            'types', 'languages', 'statuses', 'typeRelation', 'childTypes', 'childTypeRelation', 'typeWithTitle'));
     }
 
     /**
@@ -154,7 +166,6 @@ class MaterialController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'object_type_id' => 'nullable',
-            'type_id' => 'nullable',
             'child_type_id' => 'nullable',
             'language_id' => 'nullable',
             'source' => 'nullable',
@@ -164,6 +175,9 @@ class MaterialController extends Controller
             'file_text_comment' => 'nullable',
             'status_id' => 'nullable',
         ]);
+
+        $data = $request->all();
+        $data['type_id'] = MaterialChildObjectType::where("childType_id", $data["child_type_id"])->get()->pluck('type_id')[0];
 
         if ($request->has('archive_file_paths')) {
 
@@ -181,6 +195,7 @@ class MaterialController extends Controller
                     'name' => $material_file->getClientOriginalName(),
                     'object_type_id' => $object_type_id,
                     'type_id' => MaterialTypeObjectType::where('object_type_id', $object_type_id)->first()->id,
+                    'child_type_id' => $data['child_type_id'],
                     'language_id' => $request->language_id[0],
                     'source' => $request->source,
                     'file_id' => AppHelper::saveDocument('file', 'materials', auth()->user()->id, $material_file),
@@ -192,32 +207,29 @@ class MaterialController extends Controller
                 /**
                  * @param Material $material
                  */
+
+                dd('stop');
                 Material::create($new_material);
             }
         } else {
-            $input = $request->all();
 
-            $input['file_id'] = AppHelper::saveDocument('file', 'materials');
-            $input['creator_id'] = auth()->id();
+            $data['file_id'] = AppHelper::saveDocument('file', 'materials');
+            $data['creator_id'] = auth()->id();
 
             /**
              * @param Material $material
              */
 
-            // Изменения
+            $languages = $data['language_id']; // Копируем все языки из массива на новую переменную
+            $data['language_id'] = null; // Присваиваем null чтобы не вызывало ошибку записи массива в integer
 
-            $languages = $input['language_id']; // Копируем все языки из массива на новую переменную
-            $input['language_id'] = null; // Присваиваем null чтобы не вызывало ошибку записи массива в integer
-
-            $material_id = Material::create($input)->id; // Создаем материал и получаем id последнего добавленной записи
+            $material_id = Material::create($data)->id; // Создаем материал и получаем id последнего добавленной записи
             foreach ($languages as $language){
                 MaterialLanguagesBridge::create([
                     'material_language_id' => $language,
                     'material_id' => $material_id
                 ]);
             }
-
-            // Конец изменения
 
         }
 
@@ -247,11 +259,14 @@ class MaterialController extends Controller
      */
     public function edit($id)
     {
+        $types = MaterialType::all();
+        $childTypes = MaterialChildType::all();
         $typeObjectTypeId = MaterialTypeObjectType::all();
         $typeObjectChildTypeId = MaterialChildObjectType::all();
 
         $typeRelation = [];
         $childTypeRelation = [];
+        $typeWithTitle = [];
 
         foreach ($typeObjectTypeId as $value) {
             $typeRelation[] = [$value->object_type_id, $value->type_id];
@@ -260,6 +275,16 @@ class MaterialController extends Controller
         foreach ($typeObjectChildTypeId as $value) {
             $childTypeRelation[] = [$value->type_id, $value->childType_id];
         }
+
+        foreach ($types as $value) {
+            foreach ($childTypes as $key => $ChildValue) {
+                if($value->id == $typeObjectChildTypeId[$key]->type_id){
+                    $typeWithTitle[$value->id] = $value->title;
+                    $typeWithTitle[$value->title][$ChildValue->id] = $ChildValue->title;
+                }
+            }
+        }
+
         session(['for_modal_material_id' => $id]);
         $material = Material::find($id);
         $objectTypes = MaterialObjectType::pluck('title', 'id')->all();
@@ -281,7 +306,7 @@ class MaterialController extends Controller
         // Конец изменения
 
         return view('materials.edit', compact('material',
-            'objectTypes', 'types', 'childTypes', 'languages', 'hasLanguages', 'statuses', 'typeRelation', 'childTypeRelation'));
+            'objectTypes', 'types', 'childTypes', 'languages', 'hasLanguages', 'statuses', 'typeRelation', 'childTypes', 'childTypeRelation', 'typeWithTitle'));
     }
 
     /**
@@ -301,7 +326,6 @@ class MaterialController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'object_type_id' => 'nullable',
-            'type_id' => 'nullable',
             'child_type_id' => 'nullable',
             'language_id' => 'nullable',
             'source' => 'nullable',
@@ -312,22 +336,23 @@ class MaterialController extends Controller
             'status_id' => 'nullable',
         ]);
 
-        $input = $request->all();
+        $data = $request->all();
+        $data['type_id'] = MaterialChildObjectType::where("childType_id", $data["child_type_id"])->get()->pluck('type_id')[0];
+
 
         // Upload file
-        if (empty($input['file_id'])) {
+        if (empty($data['file_id'])) {
             $input['file_id'] = AppHelper::saveDocument('file', 'materials');
         }
 
-
         // Изменения
 
-        $languages = $input['language_id'];
-        $input['language_id'] = null;
+        $languages = $data['language_id'];
+        $data['language_id'] = null;
 
         MaterialLanguagesBridge::where('material_id', $id)->delete();
 
-        $material->update($input);
+        $material->update($data);
         foreach ($languages as $language){
             MaterialLanguagesBridge::create([
                 'material_language_id' => $language,

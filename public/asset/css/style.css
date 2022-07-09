@@ -3122,7 +3122,7 @@ p.quote:before {
 }
 
 .input-group-addon {
-    background-color: #fff;
+    background-color: #2196f3;
     font-weight: 100;
 }
 
@@ -9852,6 +9852,7 @@ a.expert-filter-btn {
     text-align:center;
     align-items: center;
     overflow-y: auto;
+    z-index: 2;
 }
 
 .popup_bg {
@@ -9939,4 +9940,9 @@ audio{
     }
 }
 
+#articleType_1, #articleType_2{
+    top: -10px;
+    font-size: 14px;
+    color: #6b6b6b;
+}
 

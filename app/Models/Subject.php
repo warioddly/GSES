@@ -14,6 +14,7 @@ class Subject extends Model
 
     protected $fillable = [
         'subject_case',
+        'note',
         'user_id'
     ];
 

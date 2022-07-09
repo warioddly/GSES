@@ -40,15 +40,11 @@
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')] + $objectTypes, null,true)); ?>
+                        <?php echo e(AppHelper::dependedSelectBlade('object_type_id', __('Object type'), [null=>__('Search for an item')] + $objectTypes, $material->object_type_id,true)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('type_id', __('Source'), [null=>__('Search for an item')] + $types, null,true, 'object_type_id', $typeRelation)); ?>
-
-                    </div>
-                    <div class="col-md-6 px-md-5 form-field">
-                        <?php echo e(AppHelper::dependedSelectBlade('child_type_id', __('SourceType'), [null=>__('Search for an item')] + $childTypes, null,true, 'type_id', $childTypeRelation)); ?>
+                        <?php echo e(AppHelper::CustomDependedSelectBlade('child_type_id', __('Source'), [null=>__('Search for an item')] + $typeWithTitle, null,true, 'object_type_id', $typeRelation, null, $childTypes, $childTypeRelation, $types)); ?>
 
                     </div>
                     <div class="col-md-6 px-md-5 form-field">
@@ -187,6 +183,7 @@
                 $('textarea[name="file_text"]').text('');
             }
         });
+
     </script>
 
 <?php $__env->stopPush(); ?>

@@ -68,6 +68,11 @@ class AppHelper
         return view('uitypes.select_depend', compact('fieldName', 'label', 'options', 'value', 'required', 'parentSelect', 'dependencies', 'formArea'));
     }
 
+    public function CustomDependedSelectBlade($fieldName, $label, $options, $value = null, $required = false, $parentSelect = null, $dependencies = null, $formArea = null,$childOption = null, $childOptionRelation = null, $types = null)
+    {
+        return view('uitypes.select_custom_depend', compact('fieldName', 'label', 'options', 'value', 'required', 'parentSelect', 'dependencies', 'formArea', 'childOption', 'childOptionRelation', 'types'));
+    }
+
     public function textBlade($fieldName, $label, $value = null, $required = false, $readonly = false, $type = 'text')
     {
         return view('uitypes.text', compact('fieldName', 'label', 'value', 'required', 'readonly', 'type'));
